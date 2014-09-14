@@ -1,10 +1,9 @@
-JBoss AS Quickstart for MongoDB
+JPA in OpenShift Quickstart
 ===============================
 
-This is a simple Red Hat OpenShift example containing a JavaEE6
-servlet that illustrates some of the steps in the MongoDB Java
-Tutorial: <http://www.mongodb.org/display/DOCS/Java+Tutorial>
-
+This is a simple Red Hat OpenShift example containing a Tomcat that 
+connects to noSQL DB (Mongo2.4) and relationalDB (MySql 5.5)
+and perform persistence via JPA persistence APIs that is managed by Kundera lib.
 
 
 Running on OpenShift
@@ -12,15 +11,18 @@ Running on OpenShift
 
 Create an account at https://www.openshift.com
 
-Create a jbossas-7 application with mongodb (you can call your application whatever you want)
+Create Tomcat application with Mongo2.4 DB and MySql 5.5 DB
 
-    rhc app create testmongo jbossas-7 mongodb-2
+    rhc app create myapp jbossews-2.0 mysql-5.5 mongodb-2.4
 
 Add this upstream repo
 
-    cd testmongo
-    git remote add upstream -m master git://github.com/openshift-quickstart/jbossas-mongoDB-quickstart.git
+    cd myapp
+    git remote add upstream https://github.com/TraDuong1/jpa-openshift-quickstart
     git pull -s recursive -X theirs upstream master
+
+Modify the persistence.xml with the correct DB credentials for each DB from
+    rhc show-app myapp
 
 Then push the repo upstream
 
@@ -28,9 +30,7 @@ Then push the repo upstream
 
 That's it, you can now checkout your application at:
 
-    http://testmongo-$yournamespace.rhcloud.com/mongoDB
+    http://myapp-sweetea.apps.qatest.biz/persist
 
 
-The quickstart code is licensed under the Apache License, Version 2.0:
-http://www.apache.org/licenses/LICENSE-2.0.html
 
