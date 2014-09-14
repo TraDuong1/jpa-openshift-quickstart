@@ -30,7 +30,7 @@ Then push the repo upstream
 
 That's it, you can now checkout your application at:
 
-    http://myapp-sweetea.apps.qatest.biz/persist
+    http://myapp-$yournamespace.$youropenshiftserver/persist
 
 
 
