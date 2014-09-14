@@ -22,6 +22,7 @@ Add this upstream repo
     git pull -s recursive -X theirs upstream master
 
 Modify the persistence.xml with the correct DB credentials for each DB from
+
     rhc show-app myapp
 
 Then push the repo upstream
